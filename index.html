@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <style>
+       body {
+           margin: 0;
+           overflow: hidden;
+           background-color: #87CEEB; /* Голубое небо */
+       }
+
+       .cloud {
+           position: absolute;
+           width: 80px;
+           height: 30px;
+           background-color: #FFF; /* Цвет облака */
+           border-radius: 15px;
+           opacity: 0.8;
+           animation: moveCloud 20s linear infinite alternate; /* Анимация движения облака */
+       }
+
+       .road {
+           position: absolute;
+           width: 100vw;
+           height: 60px;
+           background-color: #808080; /* Цвет дороги */
+           bottom: 0;
+       }
+
+       .bus {
+           position: absolute;
+           width: 300px;
+           height: 120px;
+           background-color: #ADD8E6; /* Цвет кузова автобуса */
+           bottom: 60px; /* Отступ от нижней части экрана, чтобы автобус был на дороге */
+           left: -300px;
+           animation: moveBus 8s linear infinite; /* Анимация движения автобуса */
+           border-radius: 10px;
+           box-shadow: 0 0 10px #000; /* Тень под автобусом */
+       }
+
+       .busWindow {
+           position: absolute;
+           width: 90px;
+           height: 70px;
+           background-color: #FFF; /* Цвет окна автобуса */
+           top: 10%;
+           right: 20px;
+           border-radius: 10px;
+       }
+
+       .busWheel {
+           position: absolute;
+           width: 50px;
+           height: 50px;
+           background-color: #000; /* Цвет колес автобуса */
+           border-radius: 50%;
+           bottom: -25px; /* Отрицательный отступ для колес, чтобы они находились под автобусом */
+           left: 60px;
+           transform: translateX(-50%);
+           animation: rotateWheel 1s linear infinite; /* Анимация вращения колес */
+       }
+
+       .backBusWheel {
+           position: absolute;
+           width: 50px;
+           height: 50px;
+           background-color: #000; /* Цвет колес автобуса */
+           border-radius: 50%;
+           bottom: -25px; /* Отрицательный отступ для колес, чтобы они находились под автобусом */
+           left: 240px;
+           transform: translateX(-50%);
+           animation: rotateWheel 1s linear infinite; /* Анимация вращения колес */
+       }
+
+       @keyframes moveCloud {
+           0%, 100% {
+               transform: translateY(0);
+           }
+           50% {
+               transform: translateY(-20px);
+           }
+           75% {
+               transform: translateY(10px);
+           }
+           25% {
+               transform: translateY(-10px);
+           }
+       }
+
+       @keyframes moveBus {
+           0% {
+               left: -300px;
+           }
+           100% {
+               left: calc(100vw - 50px);
+           }
+       }
+
+       @keyframes rotateWheel {
+           100% {
+               transform: translateX(-50%) rotate(360deg);
+           }
+       }
+   </style>
+</head>
+<body>
+   <!-- Облака -->
+   <div class="cloud" style="top: 20%; left: 20%;"></div>
+   <div class="cloud" style="top: 10%; left: 50%;"></div>
+   <div class="cloud" style="top: 30%; left: 70%;"></div>
+   <div class="cloud" style="top: 15%; left: 80%;"></div>
+   <div class="cloud" style="top: 25%; left: 40%;"></div>
+   <div class="cloud" style="top: 5%; left: 60%;"></div>
+   <div class="cloud" style="top: 35%; left: 90%;"></div>
+   <div class="cloud" style="top: 20%; left: 30%;"></div>
+   <div class="cloud" style="top: 10%; left: 10%;"></div>
+   <div class="cloud" style="top: 30%; left: 50%;"></div>
+
+   <!-- Дорога -->
+   <div class="road"></div>
+
+   <!-- Автобус -->
+   <div class="bus">
+       <div class="busWindow"></div>
+       <div class="busWheel"></div>
+       <div class="backBusWheel"></div>
+   </div>
+</body>
+</html>
